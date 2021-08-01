@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: pink;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid red;
+}
+
+.court {
+  position: relative;
+  width: 600px;
+  height: 500px;
+  background-color: rgb(48, 156, 102);
+  overflow: hidden;
+  /* transform-origin: center top; */
+}
+
+.court__lines {
+  position: relative;
+}
+
+.court__lines .horizontal-line {
+  position: absolute;
+  top: 150px;
+  height: 20px;
+  width: 100%;
+  background-color: #fff;
+}
+.court__lines .vertical-line {
+  position: absolute;
+  top: 440px;
+  left: -100px;
+  height: 20px;
+  width: 100%;
+  background-color: #fff;
+  transform: rotate(90deg);
+}
+
+.court.is-flipped {
+  /* transform: rotateX(70deg) */
+  animation: flip 5s;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(80deg)
+  }
+
+  70% {
+    transform: rotateX(0deg)
+  }
+
+  100% {
+    transform: rotateZ(50deg)
+  }
