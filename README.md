@@ -4,4 +4,6 @@
 
 Congratulations to Li Yang and Wang Chi-Lin on winning the first ever medal in Olympics for Taiwan 🥇🥇
 
-![](https://i.imgur.com/W9lc11R.png)
+[DEMO](https://williamafil.github.io/badminton-challenge-review/)
+
+![](https://i.imgur.com/dF3KYZ1.png)
