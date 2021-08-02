@@ -14,28 +14,44 @@
   <title>TOKYO 2020 OLYMPICS BADMINTON MEN'S DOUBLE FINAL POINT</title>
   <link
     rel="stylesheet"
-    href="style.css"
+    href="./style.css"
   >
 </head>
 
 <body>
+  <div
+    id="modal-wrapper"
+    class="modal-wrapper opened"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-body">
+        <button
+          id="challenge-btn"
+          type="button"
+        >Challenge ✋</button>
+        <p>Click challenge to start instant review</p>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <main>
-      <div class="arc-wrapper">
+      <div class="arc-wrapper animation">
         <img
-          class="shuttlecock"
+          class="shuttlecock animation"
           src="./images/badminton-1292971.svg"
         />
-        <div class="golden-arc"></div>
+        <div class="golden-arc animation"></div>
       </div>
 
-      <section class="court is-flipped">
-        <div class="drop-point"></div>
+      <section class="court is-flipped animation">
+        <div class="drop-point animation"></div>
         <div class="court__lines">
           <div class="horizontal-line"></div>
           <div class="vertical-line"></div>
         </div>
-        <article class="court__result-card">
+        <article class="court__result-card animation">
           <h2 class="court-number"><span>C</span>OURT <span>1</span></h2>
           <h2 class="result"><span>I</span>N</h2>
         </article>
@@ -43,7 +59,7 @@
 
     </main>
   </div>
-
+  <script src="./app.js"></script>
 </body>
 
 </html>

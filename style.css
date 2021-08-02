@@ -11,6 +11,7 @@ body {
   font-size: 16px;
 }
 
+/* 🤘🤘🤘 COURT 🤘🤘🤘 */
 .container {
   width: 100vw;
   height: 100vh;
@@ -32,6 +33,7 @@ main {
   width: 400px;
   height: 20px;
   animation: arc 2.5s both;
+  animation-play-state: paused;
   z-index: 1;
 }
 
@@ -39,10 +41,29 @@ main {
   width: 50px;
   transform: rotate(-20deg);
   animation: fly 2.5s both, disappear 0.5s 2.5s forwards;
+  animation-play-state: paused;
   position: relative;
 }
 
-.arc-wrapper::after {
+.golden-arc {
+  position: absolute;
+  top: 18px;
+  left: -26px;
+  height: 100px;
+  width: 20px;
+  background: rgb(242, 242, 242);
+  background: linear-gradient(
+    21deg,
+    rgba(242, 242, 242, 0) 28%,
+    rgba(255, 224, 0, 0.6264880952380952) 100%
+  );
+
+  animation: fly-shadow 2.5s both, disappear 0.5s 2.5s forwards;
+  animation-play-state: paused;
+  z-index: -1;
+}
+
+/* .arc-wrapper::after {
   content: "";
   position: absolute;
   top: 18px;
@@ -57,8 +78,9 @@ main {
   );
 
   animation: fly-shadow 2.5s both, disappear 0.5s 2.5s forwards;
+  animation-play-state: paused;
   z-index: -1;
-}
+} */
 
 .court {
   position: relative;
@@ -72,6 +94,7 @@ main {
 .court.is-flipped {
   animation: flip 5s both;
   animation-delay: 3s;
+  animation-play-state: paused;
 }
 
 .drop-point {
@@ -85,6 +108,7 @@ main {
   z-index: 1;
   animation: emerge 1s both;
   animation-delay: 2.1s;
+  animation-play-state: paused;
 }
 
 .court__lines {
@@ -118,6 +142,7 @@ main {
   text-align: center;
   opacity: 0;
   animation: emerge 2s 4.8s forwards;
+  animation-play-state: paused;
 }
 
 .court-number {
@@ -203,4 +228,59 @@ main {
   to {
     opacity: 0;
   }
+}
+
+/* 🤘🤘🤘 MODAL 🤘🤘🤘 */
+.modal-wrapper:before {
+  content: "";
+  display: none;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.opened:before {
+  display: block;
+}
+
+.opened .modal-dialog {
+  transform: translate(0, 0);
+  top: 40%;
+}
+.modal-dialog {
+  background: #fefefe;
+  border: #333333 solid 0px;
+  border-radius: 5px;
+  margin-left: -200px;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  top: -100%;
+  z-index: 11;
+  width: 360px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transform: translate(0, -500%);
+  transition: transform 0.3s ease-out;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-body > button {
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border-color: #bbb;
+}
+
+.modal-body > p {
+  margin-top: 5px;
+  font-size: 13px;
 }
