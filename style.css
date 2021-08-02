@@ -39,6 +39,25 @@ main {
   width: 50px;
   transform: rotate(-20deg);
   animation: fly 2.5s both, disappear 0.5s 2.5s forwards;
+  position: relative;
+}
+
+.arc-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: -26px;
+  height: 100px;
+  width: 20px;
+  background: rgb(242, 242, 242);
+  background: linear-gradient(
+    21deg,
+    rgba(242, 242, 242, 0) 28%,
+    rgba(255, 224, 0, 0.6264880952380952) 100%
+  );
+
+  animation: fly-shadow 2.5s both, disappear 0.5s 2.5s forwards;
+  z-index: -1;
 }
 
 .court {
@@ -162,6 +181,18 @@ main {
   }
   to {
     transform: scale(0.5) rotate(-70deg);
+  }
+}
+
+@keyframes fly-shadow {
+  from {
+    transform: scale(1) rotate(38deg);
+    left: -25px;
+  }
+  to {
+    transform: scale(0.5) rotate(-9deg);
+    left: 18px;
+    top: 3px;
   }
 }
 
