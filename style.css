@@ -1,8 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: pink;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
 }
 
 .container {
@@ -12,16 +18,54 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 5px solid red;
+  background-color: #ccc;
+}
+
+main {
+  position: relative;
+}
+
+.arc-wrapper {
+  position: absolute;
+  top: 200px;
+  left: -145px;
+  width: 400px;
+  height: 20px;
+  animation: arc 2.5s both;
+  z-index: 1;
+}
+
+.shuttlecock {
+  width: 50px;
+  transform: rotate(-20deg);
+  animation: fly 2.5s both, disappear 0.5s 2.5s forwards;
 }
 
 .court {
   position: relative;
-  width: 600px;
+  min-width: 600px;
   height: 500px;
   background-color: rgb(48, 156, 102);
   overflow: hidden;
-  /* transform-origin: center top; */
+  transform-origin: center;
+}
+
+.court.is-flipped {
+  animation: flip 5s both;
+  animation-delay: 3s;
+}
+
+.drop-point {
+  position: absolute;
+  top: 153px;
+  left: 275px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  animation: emerge 1s both;
+  animation-delay: 2.1s;
 }
 
 .court__lines {
@@ -45,11 +89,36 @@
   transform: rotate(90deg);
 }
 
-.court.is-flipped {
-  /* transform: rotateX(70deg) */
-  /* animation: flip 5s forwards; */
-  animation: flip 5s both;
-  animation-delay: 3s;
+.court__result-card {
+  position: absolute;
+  top: 300px;
+  left: 250px;
+  display: flex;
+  flex-direction: column;
+  width: 190px;
+  text-align: center;
+  opacity: 0;
+  animation: emerge 2s 4.8s forwards;
+}
+
+.court-number {
+  background-color: rgb(22, 20, 38);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 300;
+}
+.court-number > span {
+  font-size: 25px;
+}
+
+.result {
+  background-color: rgb(240, 240, 240);
+  color: rgb(22, 20, 38);
+  font-size: 20px;
+  font-weight: 400;
+}
+.result > span {
+  font-size: 25px;
 }
 
 @keyframes flip {
@@ -62,6 +131,45 @@
   }
 
   to {
-    transform: rotateX(0deg) scale(2.5);
+    transform: rotateX(0deg) scale(3);
+  }
+}
+
+@keyframes emerge {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes arc {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(185deg);
+    width: 450px;
+  }
+}
+
+@keyframes fly {
+  from {
+    transform: scale(1) rotate(-20deg);
+  }
+  to {
+    transform: scale(0.5) rotate(-70deg);
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
